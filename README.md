@@ -16,7 +16,7 @@ This repo contains of my talk materials. It includes Slides, and Demo Materials.
 - AWS Account
   - Make sure you have sign up for creating an AWS Account
   - `ap-southeast-1` or Singapore region is enabled
-- Add Repository Secrets for
+- Add Repository Secrets for these following keys
   - `AWS_ACCESS_KEY_ID`
 
     Credential key for your AWS_ACCESS_KEY_ID
