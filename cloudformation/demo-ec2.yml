@@ -1,17 +1,10 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description:
-  Template for creating simple deployment with EC instance.
-Mappings:
-  Dev:
-    Network:
-      VPCID: vpc-1da8517a
+  Template for creating simple deployment with EC2 instance.
 Parameters:
-  Environment:
+  VPCID:
     Type: String
-    AllowedValues:
-      - Dev
-      - Prod
-    Description: What environment this template is deployed in
+    Description: What VPC ID this template is deployed in
   EC2AMIID: 
     Type:  AWS::EC2::Image::Id
     Description: AMI ID of EC2 instance Server
@@ -45,7 +38,7 @@ Resources:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Enable SSH and Web Access
-      VpcId: !FindInMap [!Ref Environment, Network, VPCID]
+      VpcId: !Ref 'VPCID'
       SecurityGroupIngress:
       - IpProtocol: tcp
         FromPort: 22

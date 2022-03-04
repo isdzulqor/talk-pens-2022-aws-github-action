@@ -36,6 +36,8 @@ jobs:
           echo "aws_secret_access_key=$AWS_SECRET_ACCESS_KEY" >> ~/.aws/credentials
       
       - name: Deploy to AWS
+        env: 
+            VPCID: ${{ secrets.VPCID }}
         run: | 
           aws cloudformation deploy \
             --region ap-southeast-1 \
@@ -43,5 +45,5 @@ jobs:
             --stack-name demo-ec2 \
             --capabilities CAPABILITY_NAMED_IAM \
             --parameter-overrides \
-              Environment=Dev 
+              VPCID=$VPCID
       
