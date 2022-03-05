@@ -2,8 +2,8 @@ name: Release
 
 on:
   push:
-    tags:
-      - 'stable*'
+    branches:
+      - 'master'
 
 jobs:
   deploy:
